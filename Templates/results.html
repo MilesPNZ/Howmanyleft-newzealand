@@ -7,8 +7,11 @@
 <body>
   <div class="container mt-5">
     <h1>Results for {{ query }}</h1>
+    {% if error %}
+      <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
     <p>Total registered: {{ total }}</p>
-    <p>Rarity: 1 in ~{{ rarity }} NZ vehicles (based on 5.87M total fleet)</p>
+    <p>Rarity: 1 in ~{{ rarity }} NZ vehicles (based on {{ total_fleet|default('unknown') }} total fleet)</p>
     <h2>By Generation</h2>
     <table class="table">
       <tr><th>Generation</th><th>Count</th></tr>
