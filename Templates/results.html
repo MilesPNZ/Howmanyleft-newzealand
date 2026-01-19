@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Results for {{ query }}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-5">
+    <h1>Results for {{ query }}</h1>
+    <p>Total registered: {{ total }}</p>
+    <p>Rarity: 1 in ~{{ rarity }} NZ vehicles (based on 5.87M total fleet)</p>
+    <h2>By Generation</h2>
+    <table class="table">
+      <tr><th>Generation</th><th>Count</th></tr>
+      {% for gen, count in by_gen.items() %}
+      <tr><td>{{ gen }}</td><td>{{ count }}</td></tr>
+      {% endfor %}
+    </table>
+    <a href="/" class="btn btn-secondary">New Search</a>
+  </div>
+</body>
+</html>
